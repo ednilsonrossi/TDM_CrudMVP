@@ -1,6 +1,7 @@
 package br.edu.ifspsaocarlos.sdm.ednilsonrossi.crudmvp.model;
 
 public class Contato {
+    private final int ID_DEFAULT = -1;
     private int id;
     private String apelido;
     private String nomeCompleto;
@@ -14,6 +15,7 @@ public class Contato {
     public Contato(String apelido, String nomeCompleto) {
         this.apelido = apelido;
         this.nomeCompleto = nomeCompleto;
+        this.id = ID_DEFAULT;
     }
 
     public int getId() {
