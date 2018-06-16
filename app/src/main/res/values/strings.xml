@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">crudmvp</string>
+    <string name="app_name">CRUD de dados com MVP</string>
+    <string name="act_novo_usuario_hint_nome_completo">Informe o seu nome completo</string>
+    <string name="act_novo_usuario_hint_apelido">Informe o apelido pelo qual é conhecido</string>
+    <string name="act_novo_usuario_btn_salvar">Salva Contato</string>
+
 </resources>

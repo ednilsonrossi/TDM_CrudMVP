@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.CadastraContatoActivity">
+
+    <EditText
+        android:id="@+id/et_nome_completo_act_cadastra"
+        android:hint="@string/act_novo_usuario_hint_nome_completo"
+        android:inputType="textPersonName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"/>
+
+    <EditText
+        android:id="@+id/et_apelido_act_cadastra"
+        android:hint="@string/act_novo_usuario_hint_apelido"
+        android:inputType="text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"/>
+
+    <Button
+        android:id="@+id/btn_salvar_act_novo_usuario"
+        android:textColor="#fff"
+        android:text="@string/act_novo_usuario_btn_salvar"
+        android:onClick="salvarContato"
+        android:background="@drawable/borda"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"/>
+</LinearLayout>
