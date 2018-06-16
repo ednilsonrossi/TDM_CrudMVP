@@ -48,6 +48,8 @@ public class ContatoDAO {
         cursor = database.query(SQLite.DATABASE_TABLE_CONTATOS, colunas, where, null, null, null, SQLite.CONTATOS_FIELD_ID);
 
         if(!cursor.moveToNext()){
+            cursor.close();
+            database.close();
             throw new NoSuchElementException("Contato com id: " + id + " não está cadastrado cadastrado.");
         }
         retorno = new Contato(cursor.getInt(0), cursor.getString(1), cursor.getString(2));
@@ -68,6 +70,8 @@ public class ContatoDAO {
         cursor = database.query(SQLite.DATABASE_TABLE_CONTATOS, colunas, null, null, null, null, SQLite.CONTATOS_FIELD_APELIDO);
 
         if(!cursor.moveToNext()){
+            cursor.close();
+            database.close();
             throw new NoSuchElementException("Não há contatos cadastrados.");
         }
         do{
@@ -81,8 +85,22 @@ public class ContatoDAO {
         return retorno;
     }
 
-    public void update(Contato contato){
+    public void update(Contato contato) throws NullPointerException, NoSuchElementException{
+        if(contato == null){
+            throw new NullPointerException("Contato inválido.");
+        }
+        String where = SQLite.CONTATOS_FIELD_ID + " = " + contato.getId();
+        ContentValues valores = new ContentValues();
+        valores.put(SQLite.CONTATOS_FIELD_ID, contato.getId());
+        valores.put(SQLite.CONTATOS_FIELD_APELIDO, contato.getApelido());
+        valores.put(SQLite.CONTATOS_FIELD_NOME, contato.getNomeCompleto());
 
+        database = sqLite.getWritableDatabase();
+        if(database.update(SQLite.DATABASE_TABLE_CONTATOS, valores, where, null) <= 0 ){
+            database.close();
+            throw new NoSuchElementException("Contato não cadastrado: " + contato.toString());
+        }
+        database.close();
     }
 
     public void delete(Contato contato) throws NullPointerException, NoSuchElementException{
@@ -93,6 +111,7 @@ public class ContatoDAO {
 
         where = SQLite.CONTATOS_FIELD_ID + " = " + contato.getId();
         if(database.delete(SQLite.DATABASE_TABLE_CONTATOS, where, null) <= 0){
+            database.close();
             throw new NoSuchElementException("Contato não cadastrado: " + contato.toString() );
         }
         database.close();
