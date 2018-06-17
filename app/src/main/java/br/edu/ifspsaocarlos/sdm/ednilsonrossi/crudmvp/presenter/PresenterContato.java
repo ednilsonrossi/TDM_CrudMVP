@@ -5,10 +5,11 @@ import android.content.Context;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.edu.ifspsaocarlos.sdm.ednilsonrossi.crudmvp.adapter.ContatoAdapter;
 import br.edu.ifspsaocarlos.sdm.ednilsonrossi.crudmvp.dao.ContatoDAO;
 import br.edu.ifspsaocarlos.sdm.ednilsonrossi.crudmvp.excecoes.DadoNaoEncontradoException;
 import br.edu.ifspsaocarlos.sdm.ednilsonrossi.crudmvp.model.Contato;
-import br.edu.ifspsaocarlos.sdm.ednilsonrossi.crudmvp.task.IListaContato;
+import br.edu.ifspsaocarlos.sdm.ednilsonrossi.crudmvp.Interface.IListaContato;
 import br.edu.ifspsaocarlos.sdm.ednilsonrossi.crudmvp.view.ListaContatosActivity;
 
 public class PresenterContato implements IListaContato.Presenter{
@@ -33,6 +34,27 @@ public class PresenterContato implements IListaContato.Presenter{
             e.printStackTrace();
         }
         listaContatoView.criarContatoAdapter(retorno);
-
     }
+
+    @Override
+    public void atualizarDadosAdapter(ContatoAdapter adapter) {
+        List<Contato> retorno;
+        try {
+            retorno = contatoDAO.recuperate();
+        } catch (DadoNaoEncontradoException e) {
+            retorno = new ArrayList<>();
+            e.printStackTrace();
+        }
+        adapter.atualizarDados(retorno);
+        adapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public void recuperaObjetoAdapter(ContatoAdapter adapter, int position) {
+        Contato c;
+        c = adapter.getObject(position);
+        listaContatoView.exibirDetalhesContato(c.getId());
+    }
+
+
 }

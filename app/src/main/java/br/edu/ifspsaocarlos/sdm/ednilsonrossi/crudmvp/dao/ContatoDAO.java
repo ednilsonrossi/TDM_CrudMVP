@@ -9,6 +9,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.NoSuchElementException;
 
+import br.edu.ifspsaocarlos.sdm.ednilsonrossi.crudmvp.excecoes.CampoNaoEncontradoException;
 import br.edu.ifspsaocarlos.sdm.ednilsonrossi.crudmvp.excecoes.DadoNaoEncontradoException;
 import br.edu.ifspsaocarlos.sdm.ednilsonrossi.crudmvp.excecoes.ObjetoNuloException;
 import br.edu.ifspsaocarlos.sdm.ednilsonrossi.crudmvp.model.Contato;
@@ -35,12 +36,12 @@ public class ContatoDAO {
         database.close();
     }
 
-    public Contato recuperate(int id) throws NoSuchFieldException, NoSuchElementException{
+    public Contato recuperate(int id) throws CampoNaoEncontradoException, DadoNaoEncontradoException{
         Contato retorno = null;
         Cursor cursor;
 
         if(id <= 0){
-            throw new NoSuchFieldException("Id informado é inválido.");
+            throw new CampoNaoEncontradoException("Id informado é inválido.");
         }
 
         String colunas[] = new String[]{SQLite.CONTATOS_FIELD_ID, SQLite.CONTATOS_FIELD_APELIDO, SQLite.CONTATOS_FIELD_NOME};
@@ -52,7 +53,7 @@ public class ContatoDAO {
         if(!cursor.moveToNext()){
             cursor.close();
             database.close();
-            throw new NoSuchElementException("IListaContato com id: " + id + " não está cadastrado cadastrado.");
+            throw new DadoNaoEncontradoException("Contato com id: " + id + " não está cadastrado cadastrado.");
         }
         retorno = new Contato(cursor.getInt(0), cursor.getString(1), cursor.getString(2));
         cursor.close();
@@ -87,9 +88,9 @@ public class ContatoDAO {
         return retorno;
     }
 
-    public void update(Contato contato) throws NullPointerException, NoSuchElementException{
+    public void update(Contato contato) throws ObjetoNuloException, DadoNaoEncontradoException{
         if(contato == null){
-            throw new NullPointerException("IListaContato inválido.");
+            throw new ObjetoNuloException("Contato inválido.");
         }
         String where = SQLite.CONTATOS_FIELD_ID + " = " + contato.getId();
         ContentValues valores = new ContentValues();
@@ -100,21 +101,22 @@ public class ContatoDAO {
         database = sqLite.getWritableDatabase();
         if(database.update(SQLite.DATABASE_TABLE_CONTATOS, valores, where, null) <= 0 ){
             database.close();
-            throw new NoSuchElementException("IListaContato não cadastrado: " + contato.toString());
+            throw new DadoNaoEncontradoException("Contato não cadastrado: " + contato.toString());
         }
         database.close();
     }
 
-    public void delete(Contato contato) throws ObjetoNuloException, NoSuchElementException{
+    public void delete(Contato contato) throws ObjetoNuloException, DadoNaoEncontradoException{
         if(contato == null){
-            throw new NullPointerException("IListaContato inválido.");
+            throw new ObjetoNuloException("Contato inválido.");
         }
         String where;
+        database = sqLite.getWritableDatabase();
 
         where = SQLite.CONTATOS_FIELD_ID + " = " + contato.getId();
         if(database.delete(SQLite.DATABASE_TABLE_CONTATOS, where, null) <= 0){
             database.close();
-            throw new NoSuchElementException("IListaContato não cadastrado: " + contato.toString() );
+            throw new DadoNaoEncontradoException("Contato não cadastrado: " + contato.toString() );
         }
         database.close();
     }

@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import java.util.List;
 
+import br.edu.ifspsaocarlos.sdm.ednilsonrossi.crudmvp.Interface.RecyclerViewOnClickListener;
 import br.edu.ifspsaocarlos.sdm.ednilsonrossi.crudmvp.R;
 import br.edu.ifspsaocarlos.sdm.ednilsonrossi.crudmvp.model.Contato;
 
@@ -17,10 +18,15 @@ public class ContatoAdapter extends RecyclerView.Adapter<ContatoAdapter.ViewHold
 
     private List<Contato> contatoList;
     private LayoutInflater inflater;
+    private RecyclerViewOnClickListener recyclerViewOnClickListener;
 
     public ContatoAdapter(Context context, List<Contato> contatoList){
         this.contatoList = contatoList;
         inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+    }
+
+    public void atualizarDados(List<Contato> contatoList){
+        this.contatoList = contatoList;
     }
 
     @NonNull
@@ -42,7 +48,15 @@ public class ContatoAdapter extends RecyclerView.Adapter<ContatoAdapter.ViewHold
         return contatoList.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    public void setRecyclerViewOnClickListener(RecyclerViewOnClickListener r){
+        recyclerViewOnClickListener = r;
+    }
+
+    public Contato getObject(int position){
+        return contatoList.get(position);
+    }
+
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         public TextView nomeTextView;
         public TextView apelidoTextView;
@@ -52,6 +66,15 @@ public class ContatoAdapter extends RecyclerView.Adapter<ContatoAdapter.ViewHold
 
             nomeTextView = (TextView) itemView.findViewById(R.id.tv_nome);
             apelidoTextView = (TextView) itemView.findViewById(R.id.tv_apelido);
+
+            itemView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View view) {
+            if(recyclerViewOnClickListener != null){
+                recyclerViewOnClickListener.onClickListener(view, getAdapterPosition());
+            }
         }
     }
 }

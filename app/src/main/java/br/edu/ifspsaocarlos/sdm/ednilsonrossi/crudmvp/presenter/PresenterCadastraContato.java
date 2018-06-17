@@ -5,7 +5,7 @@ import android.content.Context;
 import br.edu.ifspsaocarlos.sdm.ednilsonrossi.crudmvp.dao.ContatoDAO;
 import br.edu.ifspsaocarlos.sdm.ednilsonrossi.crudmvp.excecoes.ObjetoNuloException;
 import br.edu.ifspsaocarlos.sdm.ednilsonrossi.crudmvp.model.Contato;
-import br.edu.ifspsaocarlos.sdm.ednilsonrossi.crudmvp.task.ICadastraContato;
+import br.edu.ifspsaocarlos.sdm.ednilsonrossi.crudmvp.Interface.ICadastraContato;
 import br.edu.ifspsaocarlos.sdm.ednilsonrossi.crudmvp.view.CadastraContatoActivity;
 
 public class PresenterCadastraContato implements ICadastraContato.Presenter{

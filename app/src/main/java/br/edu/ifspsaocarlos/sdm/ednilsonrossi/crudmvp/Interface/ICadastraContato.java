@@ -1,4 +1,4 @@
-package br.edu.ifspsaocarlos.sdm.ednilsonrossi.crudmvp.task;
+package br.edu.ifspsaocarlos.sdm.ednilsonrossi.crudmvp.Interface;
 
 public interface ICadastraContato {
     interface View{

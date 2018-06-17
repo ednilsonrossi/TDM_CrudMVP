@@ -3,5 +3,6 @@
     <string name="act_novo_usuario_hint_nome_completo">Informe o seu nome completo</string>
     <string name="act_novo_usuario_hint_apelido">Informe o apelido pelo qual é conhecido</string>
     <string name="act_novo_usuario_btn_salvar">Salva Contato</string>
+    <string name="btn_apagar_act_detalhe">Apagar</string>
 
 </resources>

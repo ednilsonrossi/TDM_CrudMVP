@@ -4,12 +4,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import br.edu.ifspsaocarlos.sdm.ednilsonrossi.crudmvp.R;
 import br.edu.ifspsaocarlos.sdm.ednilsonrossi.crudmvp.presenter.PresenterCadastraContato;
-import br.edu.ifspsaocarlos.sdm.ednilsonrossi.crudmvp.task.ICadastraContato;
+import br.edu.ifspsaocarlos.sdm.ednilsonrossi.crudmvp.Interface.ICadastraContato;
 
 public class CadastraContatoActivity extends AppCompatActivity implements ICadastraContato.View{
 
@@ -37,6 +36,7 @@ public class CadastraContatoActivity extends AppCompatActivity implements ICadas
 
         presenter.gravarContato(apelido, nome);
 
+        setResult(0);
         finish();
     }
 
