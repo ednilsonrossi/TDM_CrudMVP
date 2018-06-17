@@ -1,4 +1,4 @@
-package br.edu.ifspsaocarlos.sdm.ednilsonrossi.crudmvp.adapter;
+package br.edu.ifspsaocarlos.sdm.ednilsonrossi.crudmvp.view.adapter;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -10,15 +10,15 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import br.edu.ifspsaocarlos.sdm.ednilsonrossi.crudmvp.Interface.RecyclerViewOnClickListener;
+import br.edu.ifspsaocarlos.sdm.ednilsonrossi.crudmvp.Interface.IRecyclerViewOnClickListener;
 import br.edu.ifspsaocarlos.sdm.ednilsonrossi.crudmvp.R;
-import br.edu.ifspsaocarlos.sdm.ednilsonrossi.crudmvp.model.Contato;
+import br.edu.ifspsaocarlos.sdm.ednilsonrossi.crudmvp.model.dominio.Contato;
 
 public class ContatoAdapter extends RecyclerView.Adapter<ContatoAdapter.ViewHolder>{
 
     private List<Contato> contatoList;
     private LayoutInflater inflater;
-    private RecyclerViewOnClickListener recyclerViewOnClickListener;
+    private IRecyclerViewOnClickListener recyclerViewOnClickListener;
 
     public ContatoAdapter(Context context, List<Contato> contatoList){
         this.contatoList = contatoList;
@@ -48,7 +48,7 @@ public class ContatoAdapter extends RecyclerView.Adapter<ContatoAdapter.ViewHold
         return contatoList.size();
     }
 
-    public void setRecyclerViewOnClickListener(RecyclerViewOnClickListener r){
+    public void setRecyclerViewOnClickListener(IRecyclerViewOnClickListener r){
         recyclerViewOnClickListener = r;
     }
 

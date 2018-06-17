@@ -6,17 +6,16 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.Toast;
 
 import java.util.List;
 
-import br.edu.ifspsaocarlos.sdm.ednilsonrossi.crudmvp.Interface.RecyclerViewOnClickListener;
+import br.edu.ifspsaocarlos.sdm.ednilsonrossi.crudmvp.Interface.IRecyclerViewOnClickListener;
 import br.edu.ifspsaocarlos.sdm.ednilsonrossi.crudmvp.R;
-import br.edu.ifspsaocarlos.sdm.ednilsonrossi.crudmvp.adapter.ContatoAdapter;
-import br.edu.ifspsaocarlos.sdm.ednilsonrossi.crudmvp.presenter.PresenterContato;
+import br.edu.ifspsaocarlos.sdm.ednilsonrossi.crudmvp.view.adapter.ContatoAdapter;
+import br.edu.ifspsaocarlos.sdm.ednilsonrossi.crudmvp.presenter.ListaContatoPresenter;
 import br.edu.ifspsaocarlos.sdm.ednilsonrossi.crudmvp.Interface.IListaContato;
 
-public class ListaContatosActivity extends AppCompatActivity implements IListaContato.View, RecyclerViewOnClickListener{
+public class ListaContatosActivity extends AppCompatActivity implements IListaContato.View, IRecyclerViewOnClickListener {
 
     private IListaContato.Presenter presenter;
     private RecyclerView recyclerView;
@@ -27,7 +26,7 @@ public class ListaContatosActivity extends AppCompatActivity implements IListaCo
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_contatos);
 
-        presenter = new PresenterContato(this);
+        presenter = new ListaContatoPresenter(this);
 
         presenter.popularDadosAdapter();
 

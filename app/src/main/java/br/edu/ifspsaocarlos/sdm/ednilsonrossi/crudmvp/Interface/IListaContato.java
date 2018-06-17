@@ -2,7 +2,7 @@ package br.edu.ifspsaocarlos.sdm.ednilsonrossi.crudmvp.Interface;
 
 import java.util.List;
 
-import br.edu.ifspsaocarlos.sdm.ednilsonrossi.crudmvp.adapter.ContatoAdapter;
+import br.edu.ifspsaocarlos.sdm.ednilsonrossi.crudmvp.view.adapter.ContatoAdapter;
 
 public interface IListaContato {
 

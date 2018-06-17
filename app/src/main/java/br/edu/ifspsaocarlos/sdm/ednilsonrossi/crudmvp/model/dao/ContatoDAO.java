@@ -1,4 +1,4 @@
-package br.edu.ifspsaocarlos.sdm.ednilsonrossi.crudmvp.dao;
+package br.edu.ifspsaocarlos.sdm.ednilsonrossi.crudmvp.model.dao;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -7,12 +7,11 @@ import android.database.sqlite.SQLiteDatabase;
 
 import java.util.LinkedList;
 import java.util.List;
-import java.util.NoSuchElementException;
 
-import br.edu.ifspsaocarlos.sdm.ednilsonrossi.crudmvp.excecoes.CampoNaoEncontradoException;
-import br.edu.ifspsaocarlos.sdm.ednilsonrossi.crudmvp.excecoes.DadoNaoEncontradoException;
-import br.edu.ifspsaocarlos.sdm.ednilsonrossi.crudmvp.excecoes.ObjetoNuloException;
-import br.edu.ifspsaocarlos.sdm.ednilsonrossi.crudmvp.model.Contato;
+import br.edu.ifspsaocarlos.sdm.ednilsonrossi.crudmvp.model.excecoes.CampoNaoEncontradoException;
+import br.edu.ifspsaocarlos.sdm.ednilsonrossi.crudmvp.model.excecoes.DadoNaoEncontradoException;
+import br.edu.ifspsaocarlos.sdm.ednilsonrossi.crudmvp.model.excecoes.ObjetoNuloException;
+import br.edu.ifspsaocarlos.sdm.ednilsonrossi.crudmvp.model.dominio.Contato;
 
 public class ContatoDAO {
     private SQLiteDatabase database;

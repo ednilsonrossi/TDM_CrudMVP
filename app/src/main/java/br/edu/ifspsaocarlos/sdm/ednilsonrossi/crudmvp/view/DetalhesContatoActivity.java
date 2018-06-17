@@ -9,16 +9,16 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import br.edu.ifspsaocarlos.sdm.ednilsonrossi.crudmvp.R;
-import br.edu.ifspsaocarlos.sdm.ednilsonrossi.crudmvp.Interface.IPresenterDetalhesContato;
+import br.edu.ifspsaocarlos.sdm.ednilsonrossi.crudmvp.Interface.IDetalhesContato;
 import br.edu.ifspsaocarlos.sdm.ednilsonrossi.crudmvp.presenter.DetalhesContatoPresenter;
 
-public class DetalhesContatoActivity extends AppCompatActivity implements IPresenterDetalhesContato.View{
+public class DetalhesContatoActivity extends AppCompatActivity implements IDetalhesContato.View{
 
     private TextView idTextView;
     private EditText nomeEditText;
     private EditText apelidoEditText;
 
-    private IPresenterDetalhesContato.Presenter presenter;
+    private IDetalhesContato.Presenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

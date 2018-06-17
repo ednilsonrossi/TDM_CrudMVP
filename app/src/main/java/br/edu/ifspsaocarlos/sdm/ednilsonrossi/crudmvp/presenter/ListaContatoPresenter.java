@@ -5,20 +5,20 @@ import android.content.Context;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.edu.ifspsaocarlos.sdm.ednilsonrossi.crudmvp.adapter.ContatoAdapter;
-import br.edu.ifspsaocarlos.sdm.ednilsonrossi.crudmvp.dao.ContatoDAO;
-import br.edu.ifspsaocarlos.sdm.ednilsonrossi.crudmvp.excecoes.DadoNaoEncontradoException;
-import br.edu.ifspsaocarlos.sdm.ednilsonrossi.crudmvp.model.Contato;
+import br.edu.ifspsaocarlos.sdm.ednilsonrossi.crudmvp.view.adapter.ContatoAdapter;
+import br.edu.ifspsaocarlos.sdm.ednilsonrossi.crudmvp.model.dao.ContatoDAO;
+import br.edu.ifspsaocarlos.sdm.ednilsonrossi.crudmvp.model.excecoes.DadoNaoEncontradoException;
+import br.edu.ifspsaocarlos.sdm.ednilsonrossi.crudmvp.model.dominio.Contato;
 import br.edu.ifspsaocarlos.sdm.ednilsonrossi.crudmvp.Interface.IListaContato;
 import br.edu.ifspsaocarlos.sdm.ednilsonrossi.crudmvp.view.ListaContatosActivity;
 
-public class PresenterContato implements IListaContato.Presenter{
+public class ListaContatoPresenter implements IListaContato.Presenter{
 
     private IListaContato.View listaContatoView;
     private ContatoDAO contatoDAO;
 
 
-    public PresenterContato(IListaContato.View listaContatoView){
+    public ListaContatoPresenter(IListaContato.View listaContatoView){
         this.listaContatoView = listaContatoView;
         Context context = (ListaContatosActivity) listaContatoView;
         contatoDAO = new ContatoDAO(context.getApplicationContext());

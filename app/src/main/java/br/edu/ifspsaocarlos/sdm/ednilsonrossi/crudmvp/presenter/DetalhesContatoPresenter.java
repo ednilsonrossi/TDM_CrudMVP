@@ -2,20 +2,20 @@ package br.edu.ifspsaocarlos.sdm.ednilsonrossi.crudmvp.presenter;
 
 import android.content.Context;
 
-import br.edu.ifspsaocarlos.sdm.ednilsonrossi.crudmvp.Interface.IPresenterDetalhesContato;
-import br.edu.ifspsaocarlos.sdm.ednilsonrossi.crudmvp.dao.ContatoDAO;
-import br.edu.ifspsaocarlos.sdm.ednilsonrossi.crudmvp.excecoes.CampoNaoEncontradoException;
-import br.edu.ifspsaocarlos.sdm.ednilsonrossi.crudmvp.excecoes.DadoNaoEncontradoException;
-import br.edu.ifspsaocarlos.sdm.ednilsonrossi.crudmvp.excecoes.ObjetoNuloException;
-import br.edu.ifspsaocarlos.sdm.ednilsonrossi.crudmvp.model.Contato;
+import br.edu.ifspsaocarlos.sdm.ednilsonrossi.crudmvp.Interface.IDetalhesContato;
+import br.edu.ifspsaocarlos.sdm.ednilsonrossi.crudmvp.model.dao.ContatoDAO;
+import br.edu.ifspsaocarlos.sdm.ednilsonrossi.crudmvp.model.excecoes.CampoNaoEncontradoException;
+import br.edu.ifspsaocarlos.sdm.ednilsonrossi.crudmvp.model.excecoes.DadoNaoEncontradoException;
+import br.edu.ifspsaocarlos.sdm.ednilsonrossi.crudmvp.model.excecoes.ObjetoNuloException;
+import br.edu.ifspsaocarlos.sdm.ednilsonrossi.crudmvp.model.dominio.Contato;
 import br.edu.ifspsaocarlos.sdm.ednilsonrossi.crudmvp.view.DetalhesContatoActivity;
 
-public class DetalhesContatoPresenter implements IPresenterDetalhesContato.Presenter{
+public class DetalhesContatoPresenter implements IDetalhesContato.Presenter{
 
-    private IPresenterDetalhesContato.View detalheContatoView;
+    private IDetalhesContato.View detalheContatoView;
     private ContatoDAO contatoDAO;
 
-    public DetalhesContatoPresenter(IPresenterDetalhesContato.View detalheContatoView) {
+    public DetalhesContatoPresenter(IDetalhesContato.View detalheContatoView) {
         this.detalheContatoView = detalheContatoView;
         Context context = ((DetalhesContatoActivity) detalheContatoView).getApplicationContext();
         contatoDAO = new ContatoDAO(context);

@@ -1,6 +1,6 @@
 package br.edu.ifspsaocarlos.sdm.ednilsonrossi.crudmvp.Interface;
 
-public interface IPresenterDetalhesContato {
+public interface IDetalhesContato {
 
     interface View{
         public void contatoInexistente();

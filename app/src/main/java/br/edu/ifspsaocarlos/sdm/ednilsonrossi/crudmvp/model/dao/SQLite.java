@@ -1,4 +1,4 @@
-package br.edu.ifspsaocarlos.sdm.ednilsonrossi.crudmvp.dao;
+package br.edu.ifspsaocarlos.sdm.ednilsonrossi.crudmvp.model.dao;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;

@@ -1,4 +1,4 @@
-package br.edu.ifspsaocarlos.sdm.ednilsonrossi.crudmvp.excecoes;
+package br.edu.ifspsaocarlos.sdm.ednilsonrossi.crudmvp.model.excecoes;
 
 public class ObjetoNuloException extends Exception {
     public ObjetoNuloException(String msg){

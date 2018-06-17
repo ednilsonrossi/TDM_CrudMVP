@@ -1,4 +1,4 @@
-package br.edu.ifspsaocarlos.sdm.ednilsonrossi.crudmvp.model;
+package br.edu.ifspsaocarlos.sdm.ednilsonrossi.crudmvp.model.dominio;
 
 public class Contato {
     private final int ID_DEFAULT = -1;

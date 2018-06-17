@@ -7,7 +7,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import br.edu.ifspsaocarlos.sdm.ednilsonrossi.crudmvp.R;
-import br.edu.ifspsaocarlos.sdm.ednilsonrossi.crudmvp.presenter.PresenterCadastraContato;
+import br.edu.ifspsaocarlos.sdm.ednilsonrossi.crudmvp.presenter.CadastraContatoPresenter;
 import br.edu.ifspsaocarlos.sdm.ednilsonrossi.crudmvp.Interface.ICadastraContato;
 
 public class CadastraContatoActivity extends AppCompatActivity implements ICadastraContato.View{
@@ -22,7 +22,7 @@ public class CadastraContatoActivity extends AppCompatActivity implements ICadas
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastra_contato);
 
-        presenter = new PresenterCadastraContato(this);
+        presenter = new CadastraContatoPresenter(this);
 
         nomeEditText = (EditText) findViewById(R.id.et_nome_completo_act_cadastra);
         apelidoEditText = (EditText) findViewById(R.id.et_apelido_act_cadastra);
